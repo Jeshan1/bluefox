@@ -1,11 +1,12 @@
 import app from './app'
 import { envConfig } from './config/config'
-import { connectDb } from './database/models/connection'
+import { connection } from './database/connection'
+
 
 async function startServer(){
 
     try {
-        await connectDb()
+         connection()
         const port = envConfig.server_port || 4000
 
         app.listen(port,()=>{
