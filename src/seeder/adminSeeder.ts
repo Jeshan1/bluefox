@@ -1,10 +1,8 @@
 
 import User from "../database/models/userModel";
-import { ApiError } from "../helper/ApiError";
-import { asyncHandler } from "../helper/AsyncHandler";
 import bcrypt from 'bcrypt'
 
-export const adminSeeder = asyncHandler(async():Promise<void>=>{
+export const adminSeeder = async():Promise<void>=>{
     const [user] = await User.findAll({
         where:{
             email:"admin@gmail.com"
@@ -12,7 +10,7 @@ export const adminSeeder = asyncHandler(async():Promise<void>=>{
     })
 
     if (user) {
-        throw new ApiError(200,"Admin already exist")
+        console.log("Admin already exists. Skipping seeding.");
     }
     else{
         try {
@@ -29,4 +27,4 @@ export const adminSeeder = asyncHandler(async():Promise<void>=>{
         }
 
     }
-})
+}
