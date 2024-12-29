@@ -1,10 +1,11 @@
-import { asyncHandler } from "../helper/asyncHandler";
+
 import { Request,Response } from "express"
 import bcrypt from 'bcrypt'
 import { ApiError } from "../helper/ApiError"
 import User from '../database/models/userModel';
 import { generateToken } from "../services/token";
 import { ApiResponse } from "../helper/ApiResponse";
+import { asyncHandler } from "../helper/AsyncHandler";
 
 
 class UserController{
